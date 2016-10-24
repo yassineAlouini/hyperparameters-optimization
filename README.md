@@ -25,7 +25,19 @@ Then activate the environment with the following command:
 
 # Dataset
 
+## Raw dataset
+
 In this talk, we analyze an [IMDB](http://www.imdb.com/) dataset that you could find [here](https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset).
+Notice that the dataset is also available in the [data](/data) folder.
+
+## Processed dataset
+
+To get the processed dataset, run the following code
+(don't forget to activate your virtual env):
+
+```
+python scripts/data_processing.py
+```
 
 # Slides
 
@@ -43,7 +55,7 @@ TODO: Add link
 
 * The [XGBoost](https://xgboost.readthedocs.io/en/latest/) website.
 
-* The [XGBoost](https://github.com/dmlc/xgboost) Github page. 
+* The [XGBoost](https://github.com/dmlc/xgboost) Github page.
 
 ## Dataset
 
