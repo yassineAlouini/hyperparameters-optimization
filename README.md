@@ -38,8 +38,22 @@ TODO: Add link
 
 # Resources
 
+
+## Xgboost
+
+* The [XGBoost](https://xgboost.readthedocs.io/en/latest/) website.
+
+* The [XGBoost](https://github.com/dmlc/xgboost) Github page. 
+
+## Dataset
+
 * You can find  [here](https://blog.nycdatascience.com/student-works/machine-learning/movie-rating-prediction/) a complete analysis from the dataset owner.  
 
+## Hyperopt
+
+* The [hyperopt](https://jaberg.github.io/hyperopt/) website.
+
+* The [hyperopt](https://github.com/hyperopt/hyperopt) Github page.
 
 # License
 
