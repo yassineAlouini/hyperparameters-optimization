@@ -36,6 +36,11 @@ TODO: Add link
 TODO: Add link
 
 
+# Resources
+
+* You can find  [here](https://blog.nycdatascience.com/student-works/machine-learning/movie-rating-prediction/) a complete analysis from the dataset owner.  
+
+
 # License
 
 The MIT License (MIT)
