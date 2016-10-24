@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Processed dataset
+
+processed_movie_metadata.csv
