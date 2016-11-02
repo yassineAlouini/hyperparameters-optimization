@@ -1,0 +1,4 @@
+cv_scores,hyperparameters,test_score,train_score,opt_method
+[ 0.62770871  0.53916399  0.59777503  0.59280375  0.55533271],"{'n_estimators': 25, 'learning_rate': 0.2, 'max_depth': 6, 'gamma': 0.6}",0.706722822434,0.52995749709,naive_grid
+[ 0.6539893   0.56968     0.63451029  0.61879454  0.56970397],"{'n_estimators': 500, 'learning_rate': 0.05, 'max_depth': 10, 'gamma': 1.0}",0.692121042174,0.375190213364,expert_grid
+[ 0.65268997  0.55835934  0.63858404  0.60846282  0.56692679],"{'n_estimators': 199, 'learning_rate': 0.048510475027105773, 'max_depth': 7, 'gamma': 0.59466782575438004}",0.678374001283,0.392883835544,hyperopt_tpe
