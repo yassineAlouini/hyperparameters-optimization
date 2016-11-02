@@ -41,7 +41,7 @@ python scripts/data_processing.py
 
 ## Results
 
-The live demo results are stored [here](/data/hyperparamaters_selection_results.csv).
+The live demo results are stored [here](/data/hyperparameters_selection_results.csv).
 
 # Slides
 
