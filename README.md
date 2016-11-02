@@ -39,13 +39,17 @@ To get the processed dataset, run the following code
 python scripts/data_processing.py
 ```
 
+## Results
+
+The live demo results are stored [here](/data/hyperparamaters_selection_results.csv).
+
 # Slides
 
-TODO: Add link
+The talk slides are available [here](talk_slides.pdf).
 
 # Notebooks
 
-TODO: Add link
+You can check the notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder.
 
 
 # Resources
