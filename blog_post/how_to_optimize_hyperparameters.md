@@ -19,6 +19,10 @@ Let's say we want to predict the air quality. Given data about CO2, NOX, weather
 
 Wihtout tuning hyperparmeters, it is often easy to fall into the trap of overfitting.
 
+To mitigate this issue, most of the time ML practionners will use cross-validation. It is a proxy that measures how well an algorithm will generalize by looking at a subset of a data.
+
+
+
 ## Strategies to optimize them
 
 There are two broad families for optimizing hyperparameters:
@@ -28,12 +32,44 @@ There are two broad families for optimizing hyperparameters:
 
 ## Sequential model based optimization
 
+This is a general approach.
+
 ## Hyperopt to the rescue
 
-Hyperopt is a Python library that
+In order to find the best hyperparmeters, we will use [Hyperopt](https://github.com/hyperopt/hyperopt). As stated in the [website](http://hyperopt.github.io/hyperopt/):
+> hyperopt is a Python library for optimizing over awkward search spaces with real-valued, discrete, and conditional dimensions.
+
+In order to find the best hyperparameters, one needs to specify two functions:
+
+```Python
+def score(params):
+    params["gamma"] = np.log(params["gamma"])
+    params["learning_rate"] = np.log(params["learning_rate"])
+    params["n_estimators"] = int(params["n_estimators"])
+    params["max_depth"] = int(params["max_depth"])
+    xgb_regressor = xgb.XGBRegressor(silent=False, **params)
+    mse = cross_val_score(xgb_regressor,
+                         train_features, train_targets,
+                         cv=5, verbose=0, n_jobs=4,
+                         scoring=mse_scorer).mean()
+    rmse = np.sqrt(mse)
+    return {'loss': rmse,
+            'status': STATUS_OK}
+
+def optimize(trials):
+    space = hyperopt_cv_parameters
+    best = fmin(score, space, algo=tpe.suggest,
+                trials=trials,
+                max_evals=MAX_EVALS)
+    return best            
+
+trials = Trials()
+optimal_param = optimize(trials)
+```
+
 
 ## Predicting the air quality in Paris (or another example)
 
 
 
-Stay tuned for our upcoming blog posts. If you want to learn about the product we are building, leave your email...
+Stay tuned for our upcoming blog posts. If you want to learn more about platform we are building, leave your email...
