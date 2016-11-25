@@ -71,5 +71,6 @@ optimal_param = optimize(trials)
 ## Predicting the air quality in Paris (or another example)
 
 
+If you are intereseted by the subject, I would highly advice you read this [blog post](http://sebastianraschka.com/blog/2016/model-evaluation-selection-part3.html).
 
 Stay tuned for our upcoming blog posts. If you want to learn more about platform we are building, leave your email...
