@@ -1,32 +1,31 @@
-
-
-# How to optimize hyperparameters?
+# How we optimize hyperparameters at Qucit?
 
 
 ## Summary
 
 ### en
 Finding the optimal hyperparameters is often tricky and time-consuming. Common methods consist of testing all the possible combinations or drawing them at random from some distributions. What if there is a better way?
-Find out by reading our latest blog post, where we explain how we use hyperopt to fine-tune our machine learning algorithms.
+Find out by reading our latest blog post, where we explain how we use hyperopt to fine-tune machine learning algorithms used at Qucit.
 
 
 ### fr
-La recherche d'hyperparmètres optimaux est souvent une tâche délicate et laborieuse. Pour y arriver, une recherche exhaustive de toutes les combinaisons possible ou bien un tirage aléatiore sont employés. Existe-t-il une meilleure approche ?
+La recherche d'hyperparmètres optimaux est souvent délicate et laborieuse.
+Généralement, nous utilisons une recherche exhaustive de toutes les combinaisons possibles ou un tirage aléatiore. Et s'il existait une meilleure approche ?
 
-Découverez dans notre dernier poste de blog comment nous y parvenons en employant hyperopt pour calibrer nos modèles de machine learning.
+Découverez comment, chez Qucit, nous utilisons hyperopt pour calibrer nos modèles de machine learning.
 
-Finding the optimal hyperparameters is often tricky and time-consuming. Common methods consist of testing all the possible combinations or drawing them at random. What if there is a better way?
-Find out by reading our latest blog post, where we explain how we use hyperopt at Qucit to fine-tune our machine learning algorithms.            
+
 
 ## Introduction
 
-At Qucit, we strive to improve the life of citizens by making cities more efficient and liveable. <br> In order to make this dream a reality, we are building a predictive platform. <br>
+At Qucit, we strive to improve the life of citizens by making cities more efficient and enjoyable. <br> In order to make this dream a reality, we are building a predictive platform. <br>
 At the core of this platform lies a set of general purpose machine learning algorithms that, given enough urban data and a phenomenon (say vehicle congestion, parking fraud or shared car mobility), will predict it for future time values.
 
 These various models need fine-tuning to work properly. The tuning step is
-often laborious, time-consuming and intractable when the model is complex.  
+often laborious, time-consuming and intractable when the model becomes very
+complex.  
 
-What are the strategies that we employ at Qucit to solve this problem ?
+What are the strategies that we employ at Qucit to solve this problem?
 Let’s start from the beginning.
 
 
@@ -55,7 +54,7 @@ To mitigate this issue, most of the time ML practionners will use cross-validati
 
 ## Strategies to select hyperparameters
 
-Most of the times, ML practionners will use cross-validation evaluation to select hyperparameters. So what is this technique?
+Often, ML practionners will use cross-validation evaluation to select hyperparameters. So what is this technique?
 
 ### Cross-validation
 
@@ -66,7 +65,7 @@ Cross-validation is a popular method to estimate how well a ML model can general
 
 In the context of hyperparameters optimization it consists in selecting the best performing ones on a subset of the training data. The diagram above shows a 5-fold cross-validation.
 
-Now that we have our evaluation method, we need to specify the grid values. 
+Now that we have our evaluation method, we need to specify the grid values.
 
 ### Choosing the grid points
 
@@ -147,16 +146,82 @@ hyperopt_optimal_hp = transform_params(hyperopt_optimal_hp)
 
 Now that the we have learned how to optimize hyperparameters using Hyperopt, let's apply this knowledge to a concrete case.
 
-You can find the accompanying notebook here.
+You can find the accompanying notebook [here]().
+
+First, let 's load the data:
+
+```Python
+features, targets = load_car_accidents()
+```
+
+Then, we split the data set into train and test subset (we leave the test subset for the final evaluation).
+
+
+```Python
+
+train_features, test_features, train_targets, test_targets = train_test_split(features, targets, test_size=TEST_SIZE, random_state=SEED)
+```
+
+As discussed in the previous parts, we will use the following algorithms:
+grid search, random search and TPE.
+
+### Results
+
+Running the three optimization strategies gives the following results:
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>optimal_hyperparameters</th>
+      <th>test_rmse</th>
+      <th>mean_cv_rmse</th>
+      <th>std_cv_rmse</th>
+      <th>train_rmse</th>
+      <th>opt_method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>{u\'n_estimators\': 20, u\'learning_rate\': 0.8, u\'max_depth\': 10, u\'gamma\': 0.6}</td>
+      <td>86.971268</td>
+      <td>85.010294</td>
+      <td>65.473701</td>
+      <td>0.210712</td>
+      <td>grid_search</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>{u\'n_estimators\': 529, u\'learning_rate\': 0.0750136635384, u\'max_depth\': 3, u\'gamma\': 0.734008538...</td>
+      <td>28.375446</td>
+      <td>29.559682</td>
+      <td>63.634280</td>
+      <td>6.584935</td>
+      <td>random_search</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>{u\'n_estimators\': 403, u\'learning_rate\': 0.0767478796779, u\'max_depth\': 3, u\'gamma\': 0.344769125...</td>
+      <td>28.537671</td>
+      <td>29.346913</td>
+      <td>50.203415</td>
+      <td>8.349751</td>
+      <td>hyperopt_tpe</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 ## Conclusion
 
-The approach that we have presented in this blog post seems like magic. It really isn't.
+The approach that we have presented in this blog post seems like magic.
+It really isn't.
 
 In fact, we had to provide the grid search hyperparameters distributions (the type of the distribution and its support).
 
-Moreover, it can't be as easily distributed as grid search even though is is possible to do it (using MongoDB)[https://github.com/hyperopt/hyperopt/wiki/Parallelizing-Evaluations-During-Search-via-MongoDB].
+Moreover, it can't be as easily distributed as grid search even though is is possible to do it [using MongoDB](https://github.com/hyperopt/hyperopt/wiki/Parallelizing-Evaluations-During-Search-via-MongoDB).
 
 Finally, notice that there is another popular alternative to the TPE algorithm that uses [Gaussian processes](https://en.wikipedia.org/wiki/Gaussian_process)(a generalization of the Gaussian distribution).   [BayesianOptimization](https://github.com/fmfn/BayesianOptimization) is one such implementation in Python.
 
