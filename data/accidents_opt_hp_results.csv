@@ -1,0 +1,4 @@
+optimal_hyperparameters,test_rmse,mean_cv_rmse,std_cv_rmse,train_rmse,opt_method
+"{'n_estimators': 25, 'learning_rate': 0.8, 'max_depth': 10, 'gamma': 0.2}",0.390102043857,0.406294501551,0.0013958444228,0.138684225214,grid_search
+"{'n_estimators': 105, 'learning_rate': 0.05838736446280593, 'max_depth': 5, 'gamma': 0.55570456585069494}",0.325454314694,0.338373464393,0.00386684180211,0.302278118669,random_search
+"{'n_estimators': 721, 'learning_rate': 0.081246827075713957, 'max_depth': 4, 'gamma': 0.64068191964407584}",0.325325087266,0.338178611066,0.00372762630407,0.298393028969,hyperopt_tpe
