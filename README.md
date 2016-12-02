@@ -3,7 +3,7 @@
 
 # About
 
-This is a the accompanying repo for the Bdx hyperparameters optimization meetup.
+This is the accompanying repo for the Bdx hyperparameters optimization meetup and [this]() Qucit blog post.
 
 
 
@@ -23,21 +23,31 @@ Then activate the environment with the following command:
 `source activate hyperparameters-optimization`
 
 
-# Dataset
+# Datasets
 
-## Raw dataset
+## IMDB
+
+### Raw dataset
 
 In this talk, we analyze an [IMDB](http://www.imdb.com/) dataset that you could find [here](https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset).
-Notice that the dataset is also available in the [data](/data) folder.
+Notice that the dataset is also available in the [data](/data) folder (titled "movies_metadata.csv").
 
-## Processed dataset
+### Processed dataset
 
 To get the processed dataset, run the following code
 (don't forget to activate your virtual env):
 
 ```
-python scripts/data_processing.py
+python scripts/imdb_data_processing.py
 ```
+
+## 2015 Traffic Fatalities
+
+### Raw dataset
+
+In the blog post, we analyze a U.S. Pollution dataset that you could find [here](https://www.kaggle.com/nhtsa/2015-traffic-fatalities).
+Notice that the dataset is also available in the [data](/data) folder
+(titled "accident.csv").
 
 ## Results
 
@@ -49,11 +59,10 @@ The talk slides are available [here](talk_slides.pdf).
 
 # Notebooks
 
-You can check the notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder.
-
+You can check the different notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder. It also contains the accompanying
+notebook for the blog post.
 
 # Resources
-
 
 ## Xgboost
 
