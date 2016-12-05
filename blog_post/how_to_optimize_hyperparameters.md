@@ -1,20 +1,5 @@
 # How we optimize hyperparameters at Qucit?
 
-
-## Summary
-
-### en
-Finding the optimal hyperparameters is often tricky and time-consuming. Common methods consist of testing all the possible combinations or drawing them at random from some distributions. What if there is a better way?
-Find out by reading our latest blog post, where we explain how we use hyperopt to fine-tune machine learning algorithms used at Qucit.
-
-
-### fr
-La recherche d'hyperparmètres optimaux est souvent délicate et laborieuse.
-Généralement, nous utilisons une recherche exhaustive de toutes les combinaisons possibles ou un tirage aléatiore. Et s'il existait une meilleure approche ?
-
-Découverez comment, chez Qucit, nous utilisons hyperopt pour calibrer nos modèles de machine learning.
-
-
 ## Introduction
 
 At Qucit, we strive to improve the life of citizens by making cities more efficient and enjoyable. <br> In order to make this dream a reality, we are building a predictive platform. <br>
