@@ -27,6 +27,13 @@ This means learning a mapping function from an input space to an output one.
 
 ## Parameters and hyperparameters
 
+In any ML problem, there are two categories of things to optimize: parameters and
+hyperparamters. The first category is learned using the training data by
+making the model fit as closely as possible to the data. The
+second category is related to the model complexity and can't be learned
+directly from the training set.
+
+From more details about the differences, we refer to this [Quora thread](https://www.quora.com/What-are-hyperparameters-in-machine-learning).
 
 
 ## Model complexity and the curse of overfitting
