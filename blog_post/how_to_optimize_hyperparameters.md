@@ -19,6 +19,16 @@ Machine learning is a systematic approach to "teach" computers how to
 automatically learn and extract "insights" from data without using hard-coded rules
 (in opposition with what was previously done in the [expert system](https://en.wikipedia.org/wiki/Expert_system) method).
 
+In what follows, we will focus our attention on
+[supervised learning](https://en.wikipedia.org/wiki/Supervised_learning),
+i.e in addition to features we have access to the values we want to predict.
+This means learning a mapping function from an input space to an output one.
+
+
+## Parameters and hyperparameters
+
+
+
 ## Model complexity and the curse of overfitting
 
 <img src='http://1.bp.blogspot.com/-CQi8z9YYDzI/T9WYh8hdhQI/AAAAAAAAAv8/Mf8E9fIwIps/s1600/p1.png'>
@@ -50,7 +60,7 @@ Now that we have our evaluation method, one question remains to be solved: how t
 There are two broad families for choosing the hyperparameters values to test:
 
 * A deterministic and exhaustive approach, known as grid search, which consists in trying all the possible combinations
-* A randomized approach where grid points are drawn from specified distributions.
+* A randomized approach where grid points are drawn from specified probabilistic distributions.
 
 There is also a third, more clever method that leverages [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics).
 
@@ -65,7 +75,7 @@ This is a general optimization method that consists in approximating a costly ev
 As stated in its [website](http://hyperopt.github.io/hyperopt/):
 > hyperopt is a Python library for optimizing over awkward search spaces with real-valued, discrete, and conditional dimensions.
 
-Now, in order to find the best hyperparameters using hyperopt, one needs to specify two functions - `loss` and `optimize`, a hyperparameters grid and a machine learning model (an [xgboost](https://xgboost.readthedocs.io/en/latest/) regression model in this example).
+Now, in order to find the best hyperparameters using hyperopt, one needs to specify two functions - `loss` and `optimize`, a hyperparameters grid and a machine learning model (we use an [xgboost](https://xgboost.readthedocs.io/en/latest/) regression model in this example, which is an efficient [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) algorithm).
 
 On one hand, the `loss` function gives the evaluation metric that is used to find the best hyperparameters. It is computed using cross validation for an XGboost regression model.
 On the other hand, the `optimize` function specifies the optimization strategy and the search space.
@@ -234,8 +244,6 @@ Moreover, it can't be as easily distributed as grid search even though is is pos
 
 Finally, notice that there is another popular alternative to the TPE algorithm that uses [Gaussian processes] (https://en.wikipedia.org/wiki/Gaussian_process)(a generalization of the Gaussian distribution).   [BayesianOptimization](https://github.com/fmfn/BayesianOptimization) is one such implementation in Python.
 
-If you want to learn more about the subject of hyperparameters tuning, I highly recommend reading this [blog post](http://sebastianraschka.com/blog/2016/model-evaluation-selection-part3.html).
+If you want to learn more about the subject of hyperparameters tuning, I highly recommend reading this [blog post](http://sebastianraschka.com/blog/2016/model-evaluation-selection-part3.html). This blog [post](http://fastml.com/optimizing-hyperparams-with-hyperopt/) is also great to learn more about Hyperopt.
 
-Finally for a more exhaustive theoretical study, check the following [paper](http://papers.nips.cc/paper/4443-algorithms-for-hyper-parameter-optimization.pdf).
-
-Stay tuned for our upcoming blog posts. If you want to have a sneak peek at our platform when it is ready, please leave your email here. And we promise, we won't fill your email box with spam.
+Stay tuned for our upcoming blog posts. If you want to have a sneak peek at our platform when it is ready, please leave your email. And we promise, we won't fill your email box with spam.
