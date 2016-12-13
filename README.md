@@ -1,10 +1,10 @@
-# hyperparameters-optimization-talk
+# hyperparameters-optimization
 
 
 # About
 
-This is the accompanying repo for the Bdx hyperparameters optimization meetup and [this]() Qucit blog post.
-
+This is the accompanying repo for the Bdx hyperparameters optimization meetup.
+It also contains the notebook and dataset for [this](http://www.qucit.com/2016/12/06/how-to-optimize-hyperparameters/) Qucit blog post.
 
 
 # Installation
@@ -41,13 +41,13 @@ To get the processed dataset, run the following code
 python scripts/imdb_data_processing.py
 ```
 
-## 2015 Traffic Fatalities
+## Airlines Delay
 
 ### Raw dataset
 
-In the blog post, we analyze a U.S. Pollution dataset that you could find [here](https://www.kaggle.com/nhtsa/2015-traffic-fatalities).
+In the blog post, we analyze the Airlines Delay dataset that you could find [here](https://www.kaggle.com/giovamata/airlinedelaycauses).
 Notice that the dataset is also available in the [data](/data) folder
-(titled "accident.csv").
+(titled "DelayedFlights.csv.zip").
 
 ## Results
 
@@ -59,8 +59,7 @@ The talk slides are available [here](talk_slides.pdf).
 
 # Notebooks
 
-You can check the different notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder. It also contains the accompanying
-notebook for the blog post.
+You can check the different notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder. It also contains the accompanying notebook for the blog post.
 
 # Resources
 
