@@ -4,7 +4,8 @@
 # About
 
 This is the accompanying repo for the Bdx hyperparameters optimization meetup.
-It also contains the notebook and dataset for [this](http://www.qucit.com/2016/12/06/how-to-optimize-hyperparameters/) Qucit blog post.
+It also contains the notebook and dataset for [this](http://www.qucit.com/2016/12/06/how-to-optimize-hyperparameters/) Qucit blog post
+and also the hyperparameters optimization webinar.
 
 
 # Installation
@@ -56,10 +57,12 @@ The live demo results are stored [here](/data/hyperparameters_selection_results.
 # Slides
 
 The talk slides are available [here](talk_slides.pdf).
+The webinar slides are available [here](webinar_slides.pdf)
 
 # Notebooks
 
 You can check the different notebooks used during the talk and the live demo by browsing the [notebooks](/notebooks) folder. It also contains the accompanying notebook for the blog post.
+The `/notebooks/webinar` folder contains the webinar notebook.
 
 # Resources
 
